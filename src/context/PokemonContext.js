@@ -1,14 +1,17 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { fetchPokemon } from '../services/pokemon';
+import { fetchPokemon, fetchTypeData } from '../services/pokemon';
 
 const PokemonContext = createContext();
 
 const PokemonProvider = ({ children }) => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [types, setTypes] = useState([]);
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchPokemon();
+      const typesObjects = await fetchTypeData();
+      setTypes(typesObjects);
       const { results } = data;
       setPokemon(results);
       setLoading(false);

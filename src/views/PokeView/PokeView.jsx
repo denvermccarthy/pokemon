@@ -7,7 +7,9 @@ export default function PokeView() {
   if (loading) return <div>loading..</div>;
   return (
     <div>
-      <Card pokemon={pokemon[0]} />
+      {pokemon.map((pokemon) => (
+        <Card {...{ pokemon }} />
+      ))}
     </div>
   );
 }
