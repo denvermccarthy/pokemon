@@ -8,7 +8,7 @@ export default function PokeView() {
   return (
     <div>
       {pokemon.map((pokemon) => (
-        <Card {...{ pokemon }} />
+        <Card key={pokemon.id} {...{ pokemon }} />
       ))}
     </div>
   );

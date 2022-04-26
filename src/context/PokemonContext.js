@@ -7,20 +7,30 @@ const PokemonProvider = ({ children }) => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
+  const [selectedType, setSelectedType] = useState('All');
   useEffect(() => {
     const fetch = async () => {
-      const data = await fetchPokemon();
+      const data = await fetchPokemon(selectedType);
       const typesObjects = await fetchTypeData();
-      setTypes(typesObjects);
+      setTypes([{ type: 'All' }, ...typesObjects]);
       const { results } = data;
       setPokemon(results);
       setLoading(false);
     };
     fetch();
-  }, []);
+  }, [selectedType]);
   return (
     <PokemonContext.Provider
-      value={{ pokemon, setPokemon, loading, setLoading }}
+      value={{
+        pokemon,
+        setPokemon,
+        loading,
+        setLoading,
+        types,
+        setTypes,
+        selectedType,
+        setSelectedType,
+      }}
     >
       {children}
     </PokemonContext.Provider>
