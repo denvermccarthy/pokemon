@@ -1,5 +1,4 @@
 import React from 'react';
-import { usePokemonContext } from '../../context/PokemonContext';
 
 export default function Filter({ types, setSelectedType, selectedType }) {
   return (

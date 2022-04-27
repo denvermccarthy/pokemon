@@ -8,6 +8,7 @@ export default function PokeView({ pokemon, loading }) {
       {pokemon.map((pokemon) => (
         <Card key={pokemon.id} {...{ pokemon }} />
       ))}
+      {pokemon.length || <div>No Results Found.</div>}
     </div>
   );
 }
