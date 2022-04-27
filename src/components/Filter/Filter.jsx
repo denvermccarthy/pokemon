@@ -1,8 +1,7 @@
 import React from 'react';
 import { usePokemonContext } from '../../context/PokemonContext';
 
-export default function Filter() {
-  const { types, setSelectedType, selectedType } = usePokemonContext();
+export default function Filter({ types, setSelectedType, selectedType }) {
   return (
     <label htmlFor="pokemon-filter">
       <select

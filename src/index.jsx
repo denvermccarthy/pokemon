@@ -5,9 +5,7 @@ import { PokemonProvider } from './context/PokemonContext';
 
 render(
   <React.StrictMode>
-    <PokemonProvider>
-      <App />
-    </PokemonProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

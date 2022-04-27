@@ -1,5 +1,24 @@
-import React from 'react';
+import { useState } from 'react';
 
-export default function Search() {
-  return <div>Search</div>;
+export default function Search({ setQuery }) {
+  const [typing, setTyping] = useState('');
+
+  return (
+    <>
+      <input
+        value={typing}
+        type="text"
+        onChange={(e) => setTyping(e.target.value)}
+      />
+      <button
+        type="submit"
+        onClick={() => {
+          setQuery(typing);
+          setTyping('');
+        }}
+      >
+        SEARCH
+      </button>
+    </>
+  );
 }
